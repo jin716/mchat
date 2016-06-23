@@ -1,0 +1,1 @@
+protoc ./Message.proto --java_out=./

@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_package = "org.mchat.io.object";
+option java_outer_classname = "Message";
+
+message ChatMessage{
+    int64 length=1;
+    MessageType type=2;
+    int32    version=3;
+    string from = 4;
+    string to   = 5;
+    string chatId = 6;
+
+    enum MessageType{
+        TEXT = 0;
+        LOCATION = 1;
+        VOICE = 2;
+        IMAGE = 3;
+    }
+
+    repeated bytes data=7;
+
+
+
+}
