@@ -13,15 +13,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class UserCache {
 
     final ConcurrentHashMap<String,Channel> hostChannelMap;
-    final ConcurrentHashMap<Long,Channel> localUserChannelMap;
-    final ConcurrentHashMap<Long,String> remoteUserHostMap;
+    final ConcurrentHashMap<Long,Channel> localUserChannelMap = new ConcurrentHashMap<Long, Channel>();
+    final ConcurrentHashMap<Long,String> remoteUserHostMap= new ConcurrentHashMap<Long, String>();
 
 
 
     public UserCache(){
         hostChannelMap = new ConcurrentHashMap<String, Channel>();
-        localUserChannelMap = new ConcurrentHashMap<Long, Channel>();
-        remoteUserHostMap = new ConcurrentHashMap<Long, String>();
     }
 
     public Channel getLocalUserChannel(Long user){

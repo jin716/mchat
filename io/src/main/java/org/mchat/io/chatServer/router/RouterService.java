@@ -1,12 +1,10 @@
 package org.mchat.io.chatServer.router;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import io.netty.channel.Channel;
 import org.mchat.io.chatServer.UserCache;
 import org.mchat.io.chatServer.message.Message;
 
-import java.lang.reflect.Constructor;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.concurrent.*;
 
 /**
@@ -14,7 +12,7 @@ import java.util.concurrent.*;
  */
 public class RouterService {
 
-    static int THREADS_NUMBER_FACTOR = 4;
+    static int THREADS_NUMBER_FACTOR = 20;
 
     private ExecutorService executor;
 
@@ -22,24 +20,23 @@ public class RouterService {
 
     private ConcurrentLinkedQueue<Message> messages = new ConcurrentLinkedQueue<Message>();
 
+    private UserCache userCache;
+
     final ThreadFactory routerFactory =new ThreadFactoryBuilder()
             .setDaemon(true)
             .setNameFormat("router-%d")
             .build();
 
 
-    private Class<? extends Router>  routerClass = DefaultRouter.class;
-
-    public RouterService(){
-        int cores = Runtime.getRuntime().availableProcessors();
-        size =  THREADS_NUMBER_FACTOR * cores;
-        this.executor = getExecutor(size,Integer.MAX_VALUE,routerFactory);
+    public RouterService(UserCache userCache){
+        this(THREADS_NUMBER_FACTOR,userCache);
     }
 
-    public RouterService(int factor){
+    public RouterService(int factor,UserCache userCache){
         if(factor <=0 )  throw new IllegalArgumentException("factor must bigger than zero");
         int cores = Runtime.getRuntime().availableProcessors();
         this.size =  factor * cores;
+        this.userCache = userCache;
         this.executor = getExecutor(size, Integer.MAX_VALUE, routerFactory);
     }
 
@@ -49,31 +46,28 @@ public class RouterService {
 
 
 
-    public RouterService router(Class<? extends Router> routerClass) {
-        this.routerClass = routerClass;
-        return this;
-    }
-
-    private List newRouters(UserCache pool, int length) throws Exception {
-        List routers = new LinkedList();
-        Constructor constructor = routerClass.getConstructor(UserCache.class);
-        for(int i = 0 ; i < length ; ++i){
-            routers.add(constructor.newInstance(pool));
-        }
-        return routers;
-    }
-
-
     public void begin(UserCache pool) throws Exception {
-        List routers = newRouters(pool, this.size);
         try{
-            executor.invokeAll(routers);
+            while (true) {
+                Message message = messages.poll();
+                Channel to = getTo(message,this.userCache);
+                executor.submit(new RouterTask(message,to));
+            }
         }finally {
             if(this.executor!=null && !this.executor.isShutdown())
                 this.executor.shutdown();
         }
     }
 
+    public Channel getTo(Message message, UserCache cache){
+        Long key = message.getto();
+        Channel ch = cache.getLocalUserChannel(key);
+        if(ch==null)
+               ch =  cache.getRemoteUserChannel(key);
+        if(ch==null)
+               ch = cache.getBackUpChannel();
+        return ch;
+    }
 
 
 

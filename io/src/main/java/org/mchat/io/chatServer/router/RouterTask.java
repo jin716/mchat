@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 /**
  * Created by jingli on 16/6/22.
  */
-public abstract class RouterTask implements Callable {
+public class RouterTask implements Callable {
 
     final Message message;
     final Channel to;
@@ -22,7 +22,8 @@ public abstract class RouterTask implements Callable {
 
     @Override
     public ChannelFuture call() throws Exception {
-        return to.writeAndFlush(message);
+        ChannelFuture future = to.writeAndFlush(message);
+        return future;
     }
 
 }

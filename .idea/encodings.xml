@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/io/src/main/java/org/mchat/io/message/MessageBuf.java" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/io/src/main/resources/protobuf" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/io/src/main/resources/protobuf/Message.proto" charset="GB2312" />
     <file url="PROJECT" charset="UTF-8" />
