@@ -10,17 +10,15 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * Created by jingli on 16/6/22.
  */
-public class BigPool {
+public class UserCache {
 
-    final LinkedBlockingQueue<Message> messageQueue;
     final ConcurrentHashMap<String,Channel> hostChannelMap;
     final ConcurrentHashMap<Long,Channel> localUserChannelMap;
     final ConcurrentHashMap<Long,String> remoteUserHostMap;
 
 
 
-    public BigPool(){
-        this.messageQueue = new LinkedBlockingQueue();
+    public UserCache(){
         hostChannelMap = new ConcurrentHashMap<String, Channel>();
         localUserChannelMap = new ConcurrentHashMap<Long, Channel>();
         remoteUserHostMap = new ConcurrentHashMap<Long, String>();
@@ -41,7 +39,6 @@ public class BigPool {
         return  null;
     }
 
-    public LinkedBlockingQueue<Message> getMessageQueue(){ return this.messageQueue;}
 
 
     public Channel getChannel(String host,int port){
