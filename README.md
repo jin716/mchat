@@ -31,8 +31,11 @@
 ### 2.1 服务器-客户端通信协议
 
   服务器询问客户端，要求注册:
+  
   客户端提交注册信息→服务端记录→返回注册成功→开始聊天
+  
   客户端未提交注册信息（超时ClientRegisterTimeOut）→服务端关闭当前连接
+  
   信息明细:
 
   服务器要求注册 ACK_SC_REG_PING Message.TYPE = ACK Message.FLAG flag = 0
