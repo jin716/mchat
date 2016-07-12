@@ -24,7 +24,7 @@ public class Time {
         StringBuilder sb = new StringBuilder(100);
         for(int i = times.size() - 1 ; i > 0 ; --i ){
             long interval = times.get(i)-times.get(i-1);
-            sb.append(interval).append(" Millis /r/n");
+            sb.append(interval).append(" Millis \r\n");
         }
         return sb.toString();
     }
@@ -34,7 +34,7 @@ public class Time {
         for(int i = times.size() - 1 ; i > 0 ; --i ){
             long interval = times.get(i)-times.get(i-1);
             sb.append(interval).append(" Millis")
-            .append(" each part").append(interval/part);
+            .append(" each part").append(interval/part).append("\r\n");
         }
         return sb.toString();
     }

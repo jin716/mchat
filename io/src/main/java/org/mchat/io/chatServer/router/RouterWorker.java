@@ -2,8 +2,6 @@ package org.mchat.io.chatServer.router;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 
 import java.util.concurrent.Callable;
 
@@ -23,7 +21,8 @@ public class RouterWorker implements Callable {
     @Override
     public ChannelFuture call() throws Exception {
         ChannelFuture future = to.writeAndFlush(message);
-        return future;
+        future.get();
+        return null;
     }
 
 }

@@ -3,6 +3,7 @@ package org.mchat.io.chatServer;
 import io.netty.channel.Channel;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
+import org.mchat.io.chatServer.router.RouterService;
 import org.mchat.util.StringUtil;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -54,7 +55,8 @@ public class ChannelCache<T> {
                 @Override
                 public void run() {
                     try {
-                        chan.closeFuture().get(5, TimeUnit.SECONDS);
+                        Future close = chan.close();
+                        close.get(5, TimeUnit.SECONDS); //Try to close
                     } catch (Exception e) {
                         return;
                     }

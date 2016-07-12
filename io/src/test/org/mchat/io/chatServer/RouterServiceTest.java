@@ -12,31 +12,7 @@ import org.mchat.io.chatServer.router.RouterService;
  */
 public class RouterServiceTest extends TestCase {
 
-    UserCache userCache = new UserCache();
-    RouterService routerService = new RouterService(userCache);
-    EmbeddedChannel[] channels;
 
-    @Override
-    protected void setUp() throws Exception {
-        int users_size = 10;
-        for(int i = 0 ; i < users_size ; ++i){
-            channels[i] = new EmbeddedChannel();
-        }
-        for(int i = 0 ; i < users_size ; ++i){
-            userCache.setLocalUserChannel(new Long(i),channels[i]);
-        }
-
-
-    }
-
-    public void testSendLocal() {
-
-    }
-
-    // 在每个Test运行之后运行
-    @Override
-    protected void tearDown() throws Exception {
-    }
 
 
 }

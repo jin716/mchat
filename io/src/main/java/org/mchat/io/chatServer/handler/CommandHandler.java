@@ -6,7 +6,7 @@ import org.mchat.io.chatServer.ChannelCache;
 import org.mchat.io.chatServer.command.Command;
 import org.mchat.io.chatServer.command.CommandFactroy;
 import org.mchat.io.chatServer.message.Protobuf;
-import org.mchat.io.chatServer.router.Message;
+import org.mchat.io.chatServer.message.Message;
 
 /**
  * Created by jingli on 16/5/26.
@@ -21,7 +21,6 @@ public class CommandHandler extends SimpleChannelInboundHandler<Protobuf.Message
         if(command != null){
             command.process();
         }
-        ctx.fireChannelRead(msg);
     }
 
     @Override

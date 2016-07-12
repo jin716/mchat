@@ -1,26 +1,22 @@
 package org.mchat.io.chatServer.router;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import io.netty.channel.Channel;
-import org.mchat.io.chatServer.UserCache;
-import org.mchat.io.chatServer.message.Message;
+import org.mchat.io.chatServer.ChannelCache;
 
 import java.util.concurrent.*;
 
 /**
  * Created by jingli on 16/6/23.
  */
-public class RouterService {
+public class RouterService<T> {
 
     static int THREADS_NUMBER_FACTOR = 20;
-
-    private ExecutorService executor;
-
+    int boss_thread = Runtime.getRuntime().availableProcessors();
+    ExecutorService bossExecutor = Executors.newFixedThreadPool(boss_thread);
+    ExecutorService workerExecutor;
     private int size = 1;
-
-    private ConcurrentLinkedQueue<Message> messages = new ConcurrentLinkedQueue<Message>();
-
-    private UserCache userCache;
+    final private ConcurrentLinkedQueue<Routable> messages;
+    private ChannelCache cache;
 
     final ThreadFactory routerFactory =new ThreadFactoryBuilder()
             .setDaemon(true)
@@ -28,46 +24,46 @@ public class RouterService {
             .build();
 
 
-    public RouterService(UserCache userCache){
-        this(THREADS_NUMBER_FACTOR,userCache);
+    public RouterService(){
+        this(ChannelCache.getInstance(),new ConcurrentLinkedQueue<Routable>());
     }
 
-    public RouterService(int factor,UserCache userCache){
+    public RouterService(ConcurrentLinkedQueue<Routable> messages){
+        this(ChannelCache.getInstance(),messages);
+    }
+
+    public RouterService(ChannelCache userCache,ConcurrentLinkedQueue<Routable> messages){
+        this(THREADS_NUMBER_FACTOR,userCache,messages);
+    }
+
+    public RouterService(int factor,ChannelCache cache, ConcurrentLinkedQueue<Routable> messages){
         if(factor <=0 )  throw new IllegalArgumentException("factor must bigger than zero");
         int cores = Runtime.getRuntime().availableProcessors();
         this.size =  factor * cores;
-        this.userCache = userCache;
-        this.executor = getExecutor(size, Integer.MAX_VALUE, routerFactory);
+        this.cache = cache;
+        this.workerExecutor = getExecutor(size, Integer.MAX_VALUE, routerFactory);
+        this.messages = messages;
     }
+
+
 
     private ExecutorService getExecutor(int size, int maximumPoolSize,ThreadFactory factory){
         return Executors.newCachedThreadPool(factory);
     }
 
+    public void addMessage(Routable message){
+        messages.add(message);
+    }
 
 
-    public void begin(UserCache pool) throws Exception {
-        try{
-            while (true) {
-                Message message = messages.poll();
-                Channel to = getTo(message,this.userCache);
-                executor.submit(new RouterTask(message,to));
-            }
-        }finally {
-            if(this.executor!=null && !this.executor.isShutdown())
-                this.executor.shutdown();
+
+    public void startService() throws Exception {
+        for(int i = 0 ; i < boss_thread ; ++i){
+            bossExecutor.submit(new RouterBoss(messages, cache, workerExecutor));
         }
     }
 
-    public Channel getTo(Message message, UserCache cache){
-        Long key = message.getto();
-        Channel ch = cache.getLocalUserChannel(key);
-        if(ch==null)
-               ch =  cache.getRemoteUserChannel(key);
-        if(ch==null)
-               ch = cache.getBackUpChannel();
-        return ch;
-    }
+
 
 
 

@@ -1,5 +1,5 @@
 syntax = "proto3";
-option java_package = "org.mchat.io.message";
+option java_package = "org.mchat.io.chatServer.message";
 option java_outer_classname = "MessageBuf";
 
 message Message{
