@@ -7,15 +7,15 @@ import org.mchat.io.chatServer.router.Routable;
 /**
  * Created by jingli on 16/7/4.
  */
-public class Message implements Routable {
+public class ProtoMessage implements Routable {
 
     final public Protobuf.Message data;
 
-    public Message(byte[] bytes) throws InvalidProtocolBufferException {
+    public ProtoMessage(byte[] bytes) throws InvalidProtocolBufferException {
         this.data = Protobuf.Message.parseFrom(bytes);
     }
 
-    public Message(Protobuf.Message message){
+    public ProtoMessage(Protobuf.Message message){
          this.data = message;
     }
 
