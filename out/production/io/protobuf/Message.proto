@@ -1,28 +1,31 @@
 syntax = "proto3";
 option java_package = "org.mchat.io.chatServer.message";
-option java_outer_classname = "MessageBuf";
+option java_outer_classname = "Protobuf";
+
+message Parent{
+    Message message=1;
+}
 
 message Message{
 
-    MessageType type=1;
+
+    Type type=1;
     int32       version=2;
     int64       from = 3;
     int64       to   = 4;
 
-    enum MessageType{
+    enum Type{
         TEXT = 0;
         LOCATION = 1;
         VOICE = 2;
         IMAGE = 3;
-        ACK   = 4;
+        CMD   = 4;
         ERROR = 5;
     }
 
-
-    repeated bytes data=5;
-
-    int32 flag = 6;
-    int32 hash = 7;
-
-
+    string text = 5;
+    repeated bytes data=6;
+    int32 flag = 7;
+    int32 hash = 8;
 }
+
