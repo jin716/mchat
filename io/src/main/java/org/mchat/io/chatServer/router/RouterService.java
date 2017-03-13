@@ -8,7 +8,7 @@ import java.util.concurrent.*;
 /**
  * Created by jingli on 16/6/23.
  */
-public class RouterService<T> {
+public class RouterService{
 
     static int THREADS_NUMBER_FACTOR = 20;
     int boss_thread = Runtime.getRuntime().availableProcessors();
@@ -23,20 +23,32 @@ public class RouterService<T> {
             .setNameFormat("router-%d")
             .build();
 
+    static private RouterService instance;
 
-    public RouterService(){
+    /**
+     * Thread safe TODO
+     * @return
+     */
+    static public RouterService getInstance(){
+        if(instance == null){
+            instance = new RouterService();
+            return instance;
+        }
+        return instance;
+    }
+    private RouterService(){
         this(ChannelCache.getInstance(),new ConcurrentLinkedQueue<Routable>());
     }
 
-    public RouterService(ConcurrentLinkedQueue<Routable> messages){
+    private RouterService(ConcurrentLinkedQueue<Routable> messages){
         this(ChannelCache.getInstance(),messages);
     }
 
-    public RouterService(ChannelCache userCache,ConcurrentLinkedQueue<Routable> messages){
+    private RouterService(ChannelCache userCache,ConcurrentLinkedQueue<Routable> messages){
         this(THREADS_NUMBER_FACTOR,userCache,messages);
     }
 
-    public RouterService(int factor,ChannelCache cache, ConcurrentLinkedQueue<Routable> messages){
+    private RouterService(int factor,ChannelCache cache, ConcurrentLinkedQueue<Routable> messages){
         if(factor <=0 )  throw new IllegalArgumentException("factor must bigger than zero");
         int cores = Runtime.getRuntime().availableProcessors();
         this.size =  factor * cores;
@@ -63,7 +75,9 @@ public class RouterService<T> {
         }
     }
 
-
+    public ChannelCache getCache(){
+        return this.cache;
+    }
 
 
 

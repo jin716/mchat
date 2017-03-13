@@ -1,11 +1,9 @@
-import java.math.BigDecimal;
-
 /**
  * Created by jingli on 16/6/18.
  */
 public class a {
 
-    public void main(){
-        BigDecimal d = null;
+    static public void main(String[] args){
+        System.out.println(args[0]);
     }
 }

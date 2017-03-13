@@ -24,7 +24,7 @@ public class TypeInputHandler extends SimpleChannelInboundHandler<Protobuf.Messa
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.write(login(888666L));
+        ctx.writeAndFlush(login(888666L));
         for (int i = 0; i < 1; i++) {
             ctx.write(req(i));
         }
@@ -42,6 +42,12 @@ public class TypeInputHandler extends SimpleChannelInboundHandler<Protobuf.Messa
             Protobuf.Parent parent =  Protobuf.Parent.newBuilder()
                     .setMessage(message)
                     .build();
+            byte[] b = parent.toByteArray();
+            System.out.println(b.length + ":");
+            for(byte bb :b){
+                System.out.print(Integer.toHexString(bb)+" ");
+            }
+            System.out.println();
             return parent;
         }
     }
@@ -56,6 +62,12 @@ public class TypeInputHandler extends SimpleChannelInboundHandler<Protobuf.Messa
             Protobuf.Parent parent =  Protobuf.Parent.newBuilder()
                     .setMessage(message)
                     .build();
+            byte[] b = parent.toByteArray();
+            System.out.println(b.length + ":");
+            for(byte bb :b){
+                System.out.print(Integer.toHexString(bb)+" ");
+            }
+            System.out.println();
             return parent;
         }
     }

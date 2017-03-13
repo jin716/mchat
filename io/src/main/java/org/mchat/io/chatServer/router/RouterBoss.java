@@ -25,7 +25,6 @@ public class RouterBoss<T> implements Callable {
         this.executor = executor;
     }
 
-    @Override
     public Object call() throws Exception {
         while (true) {
             Routable message = messages.poll();
@@ -35,11 +34,9 @@ public class RouterBoss<T> implements Callable {
     }
 
 
-    public Channel getTo(Routable<T> message, ChannelCache cache){
-        T key = message.getto();
+    public Channel getTo(Routable message, ChannelCache cache){
+        long key = message.getto();
         Channel ch = cache.getLocalUserChannel(key);
-        if(ch==null)
-            ch =  cache.getRemoteUserChannel(key);
         if(ch==null)
             ch = cache.getBackUpChannel();
         return ch;

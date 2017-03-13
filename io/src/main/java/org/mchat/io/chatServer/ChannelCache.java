@@ -3,20 +3,18 @@ package org.mchat.io.chatServer;
 import io.netty.channel.Channel;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
-import org.mchat.io.chatServer.router.RouterService;
 import org.mchat.util.StringUtil;
 
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by jingli on 16/6/22.
  */
-public class ChannelCache<T> {
+public class ChannelCache {
 
     final ConcurrentHashMap<String,Channel> hostChannelMap = new ConcurrentHashMap<String, Channel>();;
-    final ConcurrentHashMap<T,Channel> localUserChannelMap = new ConcurrentHashMap<T, Channel>();
-    final ConcurrentHashMap<T,String> remoteUserHostMap= new ConcurrentHashMap<T, String>();
+    final ConcurrentHashMap<Long,Channel> localUserChannelMap = new ConcurrentHashMap<Long, Channel>();
+    final ConcurrentHashMap<Long,String> remoteUserHostMap= new ConcurrentHashMap<Long, String>();
 
     static private ChannelCache instance;
 
@@ -34,37 +32,33 @@ public class ChannelCache<T> {
     }
 
 
-    public Channel getLocalUserChannel(T user){
+    public Channel getLocalUserChannel(Long user){
         return  localUserChannelMap.get(user);
     }
 
-    public void setLocalUserChannel(final T user,final Channel channel){
+
+
+    synchronized public void setLocalUserChannel(final Long user,final Channel channel){
+        Long key = null;
+        final Channel chan = localUserChannelMap.remove(user);
+        if(chan != null)
+            chan.close();
         localUserChannelMap.put(user,channel);
         channel.closeFuture().addListeners(new GenericFutureListener() {
-            @Override
-            public void operationComplete(Future future) throws Exception {
-                localUserChannelMap.remove(user);
-            }
+                public void operationComplete(Future future) throws Exception {
+                    localUserChannelMap.remove(user);}
         });
     }
 
-    public void removeLocalUser(final T user){
+    //todo
+    //how to close better
+    public void removeLocalUser(final Long user){
         final Channel chan = localUserChannelMap.remove(user);
         if(chan != null)
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Future close = chan.close();
-                        close.get(5, TimeUnit.SECONDS); //Try to close
-                    } catch (Exception e) {
-                        return;
-                    }
-                }
-            }).start();
+            chan.close();
     }
 
-    public Channel getRemoteUserChannel(final T user){
+    public Channel getRemoteUserChannel(final Long user){
         String hostKey = remoteUserHostMap.get(user);
         if(hostKey!=null)
             return hostChannelMap.get(hostKey);

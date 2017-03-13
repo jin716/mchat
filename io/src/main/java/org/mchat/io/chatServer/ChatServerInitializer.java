@@ -3,9 +3,7 @@ package org.mchat.io.chatServer;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
-import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
-import org.mchat.io.chatServer.handler.RouterHandler;
 import org.mchat.io.chatServer.message.Protobuf;
 
 /**
@@ -20,7 +18,6 @@ public class ChatServerInitializer<T extends Channel> extends ChannelInitializer
     protected void initChannel(Channel socketChannel) throws Exception {
         socketChannel.pipeline().addLast("frameDecoder",new ProtobufVarint32FrameDecoder());
         socketChannel.pipeline().addLast("protobufDecoder", new ProtobufDecoder(Protobuf.Parent.getDefaultInstance()));
-        socketChannel.pipeline().addLast(new ProtobufEncoder());
         socketChannel.pipeline().addLast(new RouterHandler());
     }
 }

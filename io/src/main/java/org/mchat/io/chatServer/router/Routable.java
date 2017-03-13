@@ -1,14 +1,12 @@
 package org.mchat.io.chatServer.router;
 
-import java.io.Serializable;
-
 /**
  * Created by jingli on 16/6/22.
  */
-public interface Routable<T> {
+public interface Routable {
 
-    public T getFrom();
-    public T getto();
+    public long getFrom();
+    public long getto();
 
 
 }

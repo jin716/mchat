@@ -1,45 +1,42 @@
 package org.mchat.io.chatServer;
 
-import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelFuture;
+import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import org.mchat.io.chatServer.handler.ChatServerInitializer;
+import org.apache.log4j.Logger;
 import org.mchat.io.chatServer.router.RouterService;
-
 /**
  * Created by jingli on 16/5/26.
  */
 public class ChatServer {
 
     private int port;
+    static Logger logger = Logger.getLogger(ChatServer.class);
 
     public ChatServer(int port){
         this.port = port;
     }
 
     public void run(){
-        RouterService service = new RouterService();
+        RouterService service = RouterService.getInstance();
         try {
             service.startService();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        EventLoopGroup boss = new NioEventLoopGroup();
+        EventLoopGroup boss = new NioEventLoopGroup(1);
         EventLoopGroup worker = new NioEventLoopGroup();
         try {
-            System.out.println("binding:" + port);
-            Bootstrap bootstrap = new Bootstrap();
-            bootstrap.group(boss).group(worker)
+            logger.info("binding:" + port);
+            ServerBootstrap bootstrap = new ServerBootstrap();
+            bootstrap.group(boss, worker)
                     .channel(NioServerSocketChannel.class)
-                    .handler(new ChatServerInitializer<SocketChannel>()
-                            .RouterService(service)
+                    .childHandler(new ChatServerInitializer<SocketChannel>()
                     );
-            ChannelFuture future = bootstrap.bind(this.port);
-            future.channel().closeFuture().sync();
+            bootstrap.bind(port).sync().channel().closeFuture().sync();
         }catch (Exception e){
             e.printStackTrace();
         } finally {
@@ -47,6 +44,17 @@ public class ChatServer {
             worker.shutdownGracefully();
         }
 
+    }
+
+    public static void main(String[] args){
+
+        if(args.length!=1) {
+            System.out.println("port.");
+            return;
+        };
+
+        ChatServer server = new ChatServer(Integer.valueOf(args[0]));
+        server.run();
     }
 
 }

@@ -18,11 +18,12 @@ public class RouterWorker implements Callable {
         this.to = to;
     }
 
-    @Override
     public ChannelFuture call() throws Exception {
-        ChannelFuture future = to.writeAndFlush(message);
-        future.get();
-        return null;
+        System.out.println("routerWorker:"+to+":"+message);
+        if(to == null){
+            return null;
+        }
+        return  to.writeAndFlush(message);
     }
 
 }

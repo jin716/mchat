@@ -4,1545 +4,1809 @@
 package org.mchat.io.chatServer.message;
 
 public final class Protobuf {
-  private Protobuf() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-  }
-  public interface ParentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Parent)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional .Message message = 1;</code>
-     */
-    boolean hasMessage();
-    /**
-     * <code>optional .Message message = 1;</code>
-     */
-    org.mchat.io.chatServer.message.Protobuf.Message getMessage();
-    /**
-     * <code>optional .Message message = 1;</code>
-     */
-    org.mchat.io.chatServer.message.Protobuf.MessageOrBuilder getMessageOrBuilder();
-  }
-  /**
-   * Protobuf type {@code Parent}
-   */
-  public  static final class Parent extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:Parent)
-      ParentOrBuilder {
-    // Use Parent.newBuilder() to construct.
-    private Parent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
-    private Parent() {
+    private Protobuf() {
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private Parent(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              org.mchat.io.chatServer.message.Protobuf.Message.Builder subBuilder = null;
-              if (message_ != null) {
-                subBuilder = message_.toBuilder();
-              }
-              message_ = input.readMessage(org.mchat.io.chatServer.message.Protobuf.Message.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(message_);
-                message_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.mchat.io.chatServer.message.Protobuf.internal_static_Parent_descriptor;
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.mchat.io.chatServer.message.Protobuf.internal_static_Parent_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.mchat.io.chatServer.message.Protobuf.Parent.class, org.mchat.io.chatServer.message.Protobuf.Parent.Builder.class);
+    public interface ParentOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:Parent)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>optional .Message message = 1;</code>
+         */
+        boolean hasMessage();
+
+        /**
+         * <code>optional .Message message = 1;</code>
+         */
+        Message getMessage();
+
+        /**
+         * <code>optional .Message message = 1;</code>
+         */
+        MessageOrBuilder getMessageOrBuilder();
     }
 
-    public static final int MESSAGE_FIELD_NUMBER = 1;
-    private org.mchat.io.chatServer.message.Protobuf.Message message_;
-    /**
-     * <code>optional .Message message = 1;</code>
-     */
-    public boolean hasMessage() {
-      return message_ != null;
-    }
-    /**
-     * <code>optional .Message message = 1;</code>
-     */
-    public org.mchat.io.chatServer.message.Protobuf.Message getMessage() {
-      return message_ == null ? org.mchat.io.chatServer.message.Protobuf.Message.getDefaultInstance() : message_;
-    }
-    /**
-     * <code>optional .Message message = 1;</code>
-     */
-    public org.mchat.io.chatServer.message.Protobuf.MessageOrBuilder getMessageOrBuilder() {
-      return getMessage();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (message_ != null) {
-        output.writeMessage(1, getMessage());
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (message_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getMessage());
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Parent parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(org.mchat.io.chatServer.message.Protobuf.Parent prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code Parent}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Parent)
-        org.mchat.io.chatServer.message.Protobuf.ParentOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.mchat.io.chatServer.message.Protobuf.internal_static_Parent_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.mchat.io.chatServer.message.Protobuf.internal_static_Parent_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.mchat.io.chatServer.message.Protobuf.Parent.class, org.mchat.io.chatServer.message.Protobuf.Parent.Builder.class);
-      }
-
-      // Construct using org.mchat.io.chatServer.message.Protobuf.Parent.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        if (messageBuilder_ == null) {
-          message_ = null;
-        } else {
-          message_ = null;
-          messageBuilder_ = null;
-        }
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.mchat.io.chatServer.message.Protobuf.internal_static_Parent_descriptor;
-      }
-
-      public org.mchat.io.chatServer.message.Protobuf.Parent getDefaultInstanceForType() {
-        return org.mchat.io.chatServer.message.Protobuf.Parent.getDefaultInstance();
-      }
-
-      public org.mchat.io.chatServer.message.Protobuf.Parent build() {
-        org.mchat.io.chatServer.message.Protobuf.Parent result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public org.mchat.io.chatServer.message.Protobuf.Parent buildPartial() {
-        org.mchat.io.chatServer.message.Protobuf.Parent result = new org.mchat.io.chatServer.message.Protobuf.Parent(this);
-        if (messageBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = messageBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.mchat.io.chatServer.message.Protobuf.Parent) {
-          return mergeFrom((org.mchat.io.chatServer.message.Protobuf.Parent)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(org.mchat.io.chatServer.message.Protobuf.Parent other) {
-        if (other == org.mchat.io.chatServer.message.Protobuf.Parent.getDefaultInstance()) return this;
-        if (other.hasMessage()) {
-          mergeMessage(other.getMessage());
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.mchat.io.chatServer.message.Protobuf.Parent parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.mchat.io.chatServer.message.Protobuf.Parent) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private org.mchat.io.chatServer.message.Protobuf.Message message_ = null;
-      private com.google.protobuf.SingleFieldBuilder<
-          org.mchat.io.chatServer.message.Protobuf.Message, org.mchat.io.chatServer.message.Protobuf.Message.Builder, org.mchat.io.chatServer.message.Protobuf.MessageOrBuilder> messageBuilder_;
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public boolean hasMessage() {
-        return messageBuilder_ != null || message_ != null;
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public org.mchat.io.chatServer.message.Protobuf.Message getMessage() {
-        if (messageBuilder_ == null) {
-          return message_ == null ? org.mchat.io.chatServer.message.Protobuf.Message.getDefaultInstance() : message_;
-        } else {
-          return messageBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public Builder setMessage(org.mchat.io.chatServer.message.Protobuf.Message value) {
-        if (messageBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          message_ = value;
-          onChanged();
-        } else {
-          messageBuilder_.setMessage(value);
+    public static final class Parent extends
+            com.google.protobuf.GeneratedMessage implements
+            // @@protoc_insertion_point(message_implements:Parent)
+            ParentOrBuilder {
+        // Use Parent.newBuilder() to construct.
+        private Parent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+            super(builder);
         }
 
-        return this;
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public Builder setMessage(
-          org.mchat.io.chatServer.message.Protobuf.Message.Builder builderForValue) {
-        if (messageBuilder_ == null) {
-          message_ = builderForValue.build();
-          onChanged();
-        } else {
-          messageBuilder_.setMessage(builderForValue.build());
+        private Parent() {
         }
 
-        return this;
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public Builder mergeMessage(org.mchat.io.chatServer.message.Protobuf.Message value) {
-        if (messageBuilder_ == null) {
-          if (message_ != null) {
-            message_ =
-              org.mchat.io.chatServer.message.Protobuf.Message.newBuilder(message_).mergeFrom(value).buildPartial();
-          } else {
-            message_ = value;
-          }
-          onChanged();
-        } else {
-          messageBuilder_.mergeFrom(value);
+        @Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
         }
 
-        return this;
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public Builder clearMessage() {
-        if (messageBuilder_ == null) {
-          message_ = null;
-          onChanged();
-        } else {
-          message_ = null;
-          messageBuilder_ = null;
-        }
+        private Parent(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            int mutable_bitField0_ = 0;
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!input.skipField(tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 10: {
+                            Message.Builder subBuilder = null;
+                            if (message_ != null) {
+                                subBuilder = message_.toBuilder();
+                            }
+                            message_ = input.readMessage(Message.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom(message_);
+                                message_ = subBuilder.buildPartial();
+                            }
 
-        return this;
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public org.mchat.io.chatServer.message.Protobuf.Message.Builder getMessageBuilder() {
-        
-        onChanged();
-        return getMessageFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      public org.mchat.io.chatServer.message.Protobuf.MessageOrBuilder getMessageOrBuilder() {
-        if (messageBuilder_ != null) {
-          return messageBuilder_.getMessageOrBuilder();
-        } else {
-          return message_ == null ?
-              org.mchat.io.chatServer.message.Protobuf.Message.getDefaultInstance() : message_;
-        }
-      }
-      /**
-       * <code>optional .Message message = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          org.mchat.io.chatServer.message.Protobuf.Message, org.mchat.io.chatServer.message.Protobuf.Message.Builder, org.mchat.io.chatServer.message.Protobuf.MessageOrBuilder> 
-          getMessageFieldBuilder() {
-        if (messageBuilder_ == null) {
-          messageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              org.mchat.io.chatServer.message.Protobuf.Message, org.mchat.io.chatServer.message.Protobuf.Message.Builder, org.mchat.io.chatServer.message.Protobuf.MessageOrBuilder>(
-                  getMessage(),
-                  getParentForChildren(),
-                  isClean());
-          message_ = null;
-        }
-        return messageBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Parent)
-    }
-
-    // @@protoc_insertion_point(class_scope:Parent)
-    private static final org.mchat.io.chatServer.message.Protobuf.Parent DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new org.mchat.io.chatServer.message.Protobuf.Parent();
-    }
-
-    public static org.mchat.io.chatServer.message.Protobuf.Parent getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Parent>
-        PARSER = new com.google.protobuf.AbstractParser<Parent>() {
-      public Parent parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Parent(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Parent> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Parent> getParserForType() {
-      return PARSER;
-    }
-
-    public org.mchat.io.chatServer.message.Protobuf.Parent getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface MessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Message)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional .Message.Type type = 1;</code>
-     */
-    int getTypeValue();
-    /**
-     * <code>optional .Message.Type type = 1;</code>
-     */
-    org.mchat.io.chatServer.message.Protobuf.Message.Type getType();
-
-    /**
-     * <code>optional int32 version = 2;</code>
-     */
-    int getVersion();
-
-    /**
-     * <code>optional int64 from = 3;</code>
-     */
-    long getFrom();
-
-    /**
-     * <code>optional int64 to = 4;</code>
-     */
-    long getTo();
-
-    /**
-     * <code>repeated bytes data = 5;</code>
-     */
-    java.util.List<com.google.protobuf.ByteString> getDataList();
-    /**
-     * <code>repeated bytes data = 5;</code>
-     */
-    int getDataCount();
-    /**
-     * <code>repeated bytes data = 5;</code>
-     */
-    com.google.protobuf.ByteString getData(int index);
-
-    /**
-     * <code>optional int32 flag = 6;</code>
-     */
-    int getFlag();
-
-    /**
-     * <code>optional int32 hash = 7;</code>
-     */
-    int getHash();
-  }
-  /**
-   * Protobuf type {@code Message}
-   */
-  public  static final class Message extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:Message)
-      MessageOrBuilder {
-    // Use Message.newBuilder() to construct.
-    private Message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
-    private Message() {
-      type_ = 0;
-      version_ = 0;
-      from_ = 0L;
-      to_ = 0L;
-      data_ = java.util.Collections.emptyList();
-      flag_ = 0;
-      hash_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private Message(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                makeExtensionsImmutable();
             }
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              version_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              from_ = input.readInt64();
-              break;
-            }
-            case 32: {
-
-              to_ = input.readInt64();
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                data_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              data_.add(input.readBytes());
-              break;
-            }
-            case 48: {
-
-              flag_ = input.readInt32();
-              break;
-            }
-            case 56: {
-
-              hash_ = input.readInt32();
-              break;
-            }
-          }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          data_ = java.util.Collections.unmodifiableList(data_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+        public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mchat.io.chatServer.message.Protobuf.internal_static_Message_descriptor;
-    }
+            return Protobuf.internal_static_Parent_descriptor;
+        }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mchat.io.chatServer.message.Protobuf.internal_static_Message_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.mchat.io.chatServer.message.Protobuf.Message.class, org.mchat.io.chatServer.message.Protobuf.Message.Builder.class);
-    }
-
-    /**
-     * Protobuf enum {@code Message.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>TEXT = 0;</code>
-       */
-      TEXT(0),
-      /**
-       * <code>LOCATION = 1;</code>
-       */
-      LOCATION(1),
-      /**
-       * <code>VOICE = 2;</code>
-       */
-      VOICE(2),
-      /**
-       * <code>IMAGE = 3;</code>
-       */
-      IMAGE(3),
-      /**
-       * <code>ACK = 4;</code>
-       */
-      ACK(4),
-      /**
-       * <code>ERROR = 5;</code>
-       */
-      ERROR(5),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>TEXT = 0;</code>
-       */
-      public static final int TEXT_VALUE = 0;
-      /**
-       * <code>LOCATION = 1;</code>
-       */
-      public static final int LOCATION_VALUE = 1;
-      /**
-       * <code>VOICE = 2;</code>
-       */
-      public static final int VOICE_VALUE = 2;
-      /**
-       * <code>IMAGE = 3;</code>
-       */
-      public static final int IMAGE_VALUE = 3;
-      /**
-       * <code>ACK = 4;</code>
-       */
-      public static final int ACK_VALUE = 4;
-      /**
-       * <code>ERROR = 5;</code>
-       */
-      public static final int ERROR_VALUE = 5;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
+            return Protobuf.internal_static_Parent_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            Parent.class, Builder.class);
         }
-        return value;
-      }
 
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
+        public static final int MESSAGE_FIELD_NUMBER = 1;
+        private Message message_;
 
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return TEXT;
-          case 1: return LOCATION;
-          case 2: return VOICE;
-          case 3: return IMAGE;
-          case 4: return ACK;
-          case 5: return ERROR;
-          default: return null;
+        /**
+         * <code>optional .Message message = 1;</code>
+         */
+        public boolean hasMessage() {
+            return message_ != null;
         }
-      }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return org.mchat.io.chatServer.message.Protobuf.Message.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final Type[] VALUES = values();
-
-      public static Type valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
+        /**
+         * <code>optional .Message message = 1;</code>
+         */
+        public Message getMessage() {
+            return message_ == null ? Message.getDefaultInstance() : message_;
         }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
+
+        /**
+         * <code>optional .Message message = 1;</code>
+         */
+        public MessageOrBuilder getMessageOrBuilder() {
+            return getMessage();
         }
-        return VALUES[desc.getIndex()];
-      }
 
-      private final int value;
+        private byte memoizedIsInitialized = -1;
 
-      private Type(int value) {
-        this.value = value;
-      }
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
 
-      // @@protoc_insertion_point(enum_scope:Message.Type)
-    }
-
-    private int bitField0_;
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
-    /**
-     * <code>optional .Message.Type type = 1;</code>
-     */
-    public int getTypeValue() {
-      return type_;
-    }
-    /**
-     * <code>optional .Message.Type type = 1;</code>
-     */
-    public org.mchat.io.chatServer.message.Protobuf.Message.Type getType() {
-      org.mchat.io.chatServer.message.Protobuf.Message.Type result = org.mchat.io.chatServer.message.Protobuf.Message.Type.forNumber(type_);
-      return result == null ? org.mchat.io.chatServer.message.Protobuf.Message.Type.UNRECOGNIZED : result;
-    }
-
-    public static final int VERSION_FIELD_NUMBER = 2;
-    private int version_;
-    /**
-     * <code>optional int32 version = 2;</code>
-     */
-    public int getVersion() {
-      return version_;
-    }
-
-    public static final int FROM_FIELD_NUMBER = 3;
-    private long from_;
-    /**
-     * <code>optional int64 from = 3;</code>
-     */
-    public long getFrom() {
-      return from_;
-    }
-
-    public static final int TO_FIELD_NUMBER = 4;
-    private long to_;
-    /**
-     * <code>optional int64 to = 4;</code>
-     */
-    public long getTo() {
-      return to_;
-    }
-
-    public static final int DATA_FIELD_NUMBER = 5;
-    private java.util.List<com.google.protobuf.ByteString> data_;
-    /**
-     * <code>repeated bytes data = 5;</code>
-     */
-    public java.util.List<com.google.protobuf.ByteString>
-        getDataList() {
-      return data_;
-    }
-    /**
-     * <code>repeated bytes data = 5;</code>
-     */
-    public int getDataCount() {
-      return data_.size();
-    }
-    /**
-     * <code>repeated bytes data = 5;</code>
-     */
-    public com.google.protobuf.ByteString getData(int index) {
-      return data_.get(index);
-    }
-
-    public static final int FLAG_FIELD_NUMBER = 6;
-    private int flag_;
-    /**
-     * <code>optional int32 flag = 6;</code>
-     */
-    public int getFlag() {
-      return flag_;
-    }
-
-    public static final int HASH_FIELD_NUMBER = 7;
-    private int hash_;
-    /**
-     * <code>optional int32 hash = 7;</code>
-     */
-    public int getHash() {
-      return hash_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (type_ != org.mchat.io.chatServer.message.Protobuf.Message.Type.TEXT.getNumber()) {
-        output.writeEnum(1, type_);
-      }
-      if (version_ != 0) {
-        output.writeInt32(2, version_);
-      }
-      if (from_ != 0L) {
-        output.writeInt64(3, from_);
-      }
-      if (to_ != 0L) {
-        output.writeInt64(4, to_);
-      }
-      for (int i = 0; i < data_.size(); i++) {
-        output.writeBytes(5, data_.get(i));
-      }
-      if (flag_ != 0) {
-        output.writeInt32(6, flag_);
-      }
-      if (hash_ != 0) {
-        output.writeInt32(7, hash_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (type_ != org.mchat.io.chatServer.message.Protobuf.Message.Type.TEXT.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, type_);
-      }
-      if (version_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, version_);
-      }
-      if (from_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, from_);
-      }
-      if (to_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, to_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < data_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(data_.get(i));
+            memoizedIsInitialized = 1;
+            return true;
         }
-        size += dataSize;
-        size += 1 * getDataList().size();
-      }
-      if (flag_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, flag_);
-      }
-      if (hash_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, hash_);
-      }
-      memoizedSize = size;
-      return size;
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (message_ != null) {
+                output.writeMessage(1, getMessage());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (message_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getMessage());
+            }
+            memoizedSize = size;
+            return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+
+        public static Parent parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Parent parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Parent parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Parent parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Parent parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Parent parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Parent parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static Parent parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Parent parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Parent parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(Parent prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @Override
+        protected Builder newBuilderForType(
+                BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code Parent}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:Parent)
+                ParentOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return Protobuf.internal_static_Parent_descriptor;
+            }
+
+            protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return Protobuf.internal_static_Parent_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                Parent.class, Builder.class);
+            }
+
+            // Construct using org.mchat.io.chatServer.message.Protobuf.Parent.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                if (messageBuilder_ == null) {
+                    message_ = null;
+                } else {
+                    message_ = null;
+                    messageBuilder_ = null;
+                }
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return Protobuf.internal_static_Parent_descriptor;
+            }
+
+            public Parent getDefaultInstanceForType() {
+                return Parent.getDefaultInstance();
+            }
+
+            public Parent build() {
+                Parent result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public Parent buildPartial() {
+                Parent result = new Parent(this);
+                if (messageBuilder_ == null) {
+                    result.message_ = message_;
+                } else {
+                    result.message_ = messageBuilder_.build();
+                }
+                onBuilt();
+                return result;
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof Parent) {
+                    return mergeFrom((Parent) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(Parent other) {
+                if (other == Parent.getDefaultInstance()) return this;
+                if (other.hasMessage()) {
+                    mergeMessage(other.getMessage());
+                }
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                Parent parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (Parent) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private Message message_ = null;
+            private com.google.protobuf.SingleFieldBuilder<
+                    Message, Message.Builder, MessageOrBuilder> messageBuilder_;
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public boolean hasMessage() {
+                return messageBuilder_ != null || message_ != null;
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public Message getMessage() {
+                if (messageBuilder_ == null) {
+                    return message_ == null ? Message.getDefaultInstance() : message_;
+                } else {
+                    return messageBuilder_.getMessage();
+                }
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public Builder setMessage(Message value) {
+                if (messageBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    message_ = value;
+                    onChanged();
+                } else {
+                    messageBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public Builder setMessage(
+                    Message.Builder builderForValue) {
+                if (messageBuilder_ == null) {
+                    message_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    messageBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public Builder mergeMessage(Message value) {
+                if (messageBuilder_ == null) {
+                    if (message_ != null) {
+                        message_ =
+                                Message.newBuilder(message_).mergeFrom(value).buildPartial();
+                    } else {
+                        message_ = value;
+                    }
+                    onChanged();
+                } else {
+                    messageBuilder_.mergeFrom(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public Builder clearMessage() {
+                if (messageBuilder_ == null) {
+                    message_ = null;
+                    onChanged();
+                } else {
+                    message_ = null;
+                    messageBuilder_ = null;
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public Message.Builder getMessageBuilder() {
+
+                onChanged();
+                return getMessageFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            public MessageOrBuilder getMessageOrBuilder() {
+                if (messageBuilder_ != null) {
+                    return messageBuilder_.getMessageOrBuilder();
+                } else {
+                    return message_ == null ?
+                            Message.getDefaultInstance() : message_;
+                }
+            }
+
+            /**
+             * <code>optional .Message message = 1;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilder<
+                    Message, Message.Builder, MessageOrBuilder>
+            getMessageFieldBuilder() {
+                if (messageBuilder_ == null) {
+                    messageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+                            Message, Message.Builder, MessageOrBuilder>(
+                            getMessage(),
+                            getParentForChildren(),
+                            isClean());
+                    message_ = null;
+                }
+                return messageBuilder_;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:Parent)
+        }
+
+        // @@protoc_insertion_point(class_scope:Parent)
+        private static final Parent DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new Parent();
+        }
+
+        public static Parent getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Parent>
+                PARSER = new com.google.protobuf.AbstractParser<Parent>() {
+            public Parent parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Parent(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<Parent> parser() {
+            return PARSER;
+        }
+
+        @Override
+        public com.google.protobuf.Parser<Parent> getParserForType() {
+            return PARSER;
+        }
+
+        public Parent getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
     }
 
-    private static final long serialVersionUID = 0L;
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.mchat.io.chatServer.message.Protobuf.Message parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
+    public interface MessageOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:Message)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>optional .Message.Type type = 1;</code>
+         */
+        int getTypeValue();
+
+        /**
+         * <code>optional .Message.Type type = 1;</code>
+         */
+        Message.Type getType();
+
+        /**
+         * <code>optional int32 version = 2;</code>
+         */
+        int getVersion();
+
+        /**
+         * <code>optional int64 from = 3;</code>
+         */
+        long getFrom();
+
+        /**
+         * <code>optional int64 to = 4;</code>
+         */
+        long getTo();
+
+        /**
+         * <code>optional string text = 5;</code>
+         */
+        String getText();
+
+        /**
+         * <code>optional string text = 5;</code>
+         */
+        com.google.protobuf.ByteString
+        getTextBytes();
+
+        /**
+         * <code>repeated bytes data = 6;</code>
+         */
+        java.util.List<com.google.protobuf.ByteString> getDataList();
+
+        /**
+         * <code>repeated bytes data = 6;</code>
+         */
+        int getDataCount();
+
+        /**
+         * <code>repeated bytes data = 6;</code>
+         */
+        com.google.protobuf.ByteString getData(int index);
+
+        /**
+         * <code>optional int32 flag = 7;</code>
+         */
+        int getFlag();
+
+        /**
+         * <code>optional int32 hash = 8;</code>
+         */
+        int getHash();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(org.mchat.io.chatServer.message.Protobuf.Message prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code Message}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Message)
-        org.mchat.io.chatServer.message.Protobuf.MessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.mchat.io.chatServer.message.Protobuf.internal_static_Message_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.mchat.io.chatServer.message.Protobuf.internal_static_Message_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.mchat.io.chatServer.message.Protobuf.Message.class, org.mchat.io.chatServer.message.Protobuf.Message.Builder.class);
-      }
-
-      // Construct using org.mchat.io.chatServer.message.Protobuf.Message.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+    public static final class Message extends
+            com.google.protobuf.GeneratedMessage implements
+            // @@protoc_insertion_point(message_implements:Message)
+            MessageOrBuilder {
+        // Use Message.newBuilder() to construct.
+        private Message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+            super(builder);
         }
-      }
-      public Builder clear() {
-        super.clear();
-        type_ = 0;
 
-        version_ = 0;
-
-        from_ = 0L;
-
-        to_ = 0L;
-
-        data_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
-        flag_ = 0;
-
-        hash_ = 0;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.mchat.io.chatServer.message.Protobuf.internal_static_Message_descriptor;
-      }
-
-      public org.mchat.io.chatServer.message.Protobuf.Message getDefaultInstanceForType() {
-        return org.mchat.io.chatServer.message.Protobuf.Message.getDefaultInstance();
-      }
-
-      public org.mchat.io.chatServer.message.Protobuf.Message build() {
-        org.mchat.io.chatServer.message.Protobuf.Message result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        private Message() {
+            type_ = 0;
+            version_ = 0;
+            from_ = 0L;
+            to_ = 0L;
+            text_ = "";
+            data_ = java.util.Collections.emptyList();
+            flag_ = 0;
+            hash_ = 0;
         }
-        return result;
-      }
 
-      public org.mchat.io.chatServer.message.Protobuf.Message buildPartial() {
-        org.mchat.io.chatServer.message.Protobuf.Message result = new org.mchat.io.chatServer.message.Protobuf.Message(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.type_ = type_;
-        result.version_ = version_;
-        result.from_ = from_;
-        result.to_ = to_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          data_ = java.util.Collections.unmodifiableList(data_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+
+
+
+        @Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
         }
-        result.data_ = data_;
-        result.flag_ = flag_;
-        result.hash_ = hash_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
 
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.mchat.io.chatServer.message.Protobuf.Message) {
-          return mergeFrom((org.mchat.io.chatServer.message.Protobuf.Message)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
+        private Message(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            int mutable_bitField0_ = 0;
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!input.skipField(tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 8: {
+                            int rawValue = input.readEnum();
+
+                            type_ = rawValue;
+                            break;
+                        }
+                        case 16: {
+
+                            version_ = input.readInt32();
+                            break;
+                        }
+                        case 24: {
+
+                            from_ = input.readInt64();
+                            break;
+                        }
+                        case 32: {
+
+                            to_ = input.readInt64();
+                            break;
+                        }
+                        case 42: {
+                            String s = input.readStringRequireUtf8();
+
+                            text_ = s;
+                            break;
+                        }
+                        case 50: {
+                            if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                                data_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                                mutable_bitField0_ |= 0x00000020;
+                            }
+                            data_.add(input.readBytes());
+                            break;
+                        }
+                        case 56: {
+
+                            flag_ = input.readInt32();
+                            break;
+                        }
+                        case 64: {
+
+                            hash_ = input.readInt32();
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                    data_ = java.util.Collections.unmodifiableList(data_);
+                }
+                makeExtensionsImmutable();
+            }
         }
-      }
 
-      public Builder mergeFrom(org.mchat.io.chatServer.message.Protobuf.Message other) {
-        if (other == org.mchat.io.chatServer.message.Protobuf.Message.getDefaultInstance()) return this;
-        if (other.type_ != 0) {
-          setTypeValue(other.getTypeValue());
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return Protobuf.internal_static_Message_descriptor;
         }
-        if (other.getVersion() != 0) {
-          setVersion(other.getVersion());
+
+        protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return Protobuf.internal_static_Message_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            Message.class, Builder.class);
         }
-        if (other.getFrom() != 0L) {
-          setFrom(other.getFrom());
+
+        /**
+         * Protobuf enum {@code Message.Type}
+         */
+        public enum Type
+                implements com.google.protobuf.ProtocolMessageEnum {
+            /**
+             * <code>TEXT = 0;</code>
+             */
+            TEXT(0),
+            /**
+             * <code>LOCATION = 1;</code>
+             */
+            LOCATION(1),
+            /**
+             * <code>VOICE = 2;</code>
+             */
+            VOICE(2),
+            /**
+             * <code>IMAGE = 3;</code>
+             */
+            IMAGE(3),
+            /**
+             * <code>CMD = 4;</code>
+             */
+            CMD(4),
+            /**
+             * <code>ERROR = 5;</code>
+             */
+            ERROR(5),
+            UNRECOGNIZED(-1),;
+
+            /**
+             * <code>TEXT = 0;</code>
+             */
+            public static final int TEXT_VALUE = 0;
+            /**
+             * <code>LOCATION = 1;</code>
+             */
+            public static final int LOCATION_VALUE = 1;
+            /**
+             * <code>VOICE = 2;</code>
+             */
+            public static final int VOICE_VALUE = 2;
+            /**
+             * <code>IMAGE = 3;</code>
+             */
+            public static final int IMAGE_VALUE = 3;
+            /**
+             * <code>CMD = 4;</code>
+             */
+            public static final int CMD_VALUE = 4;
+            /**
+             * <code>ERROR = 5;</code>
+             */
+            public static final int ERROR_VALUE = 5;
+
+
+            public final int getNumber() {
+                if (this == UNRECOGNIZED) {
+                    throw new IllegalArgumentException(
+                            "Can't get the number of an unknown enum value.");
+                }
+                return value;
+            }
+
+            /**
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
+            @Deprecated
+            public static Type valueOf(int value) {
+                return forNumber(value);
+            }
+
+            public static Type forNumber(int value) {
+                switch (value) {
+                    case 0:
+                        return TEXT;
+                    case 1:
+                        return LOCATION;
+                    case 2:
+                        return VOICE;
+                    case 3:
+                        return IMAGE;
+                    case 4:
+                        return CMD;
+                    case 5:
+                        return ERROR;
+                    default:
+                        return null;
+                }
+            }
+
+            public static com.google.protobuf.Internal.EnumLiteMap<Type>
+            internalGetValueMap() {
+                return internalValueMap;
+            }
+
+            private static final com.google.protobuf.Internal.EnumLiteMap<
+                    Type> internalValueMap =
+                    new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+                        public Type findValueByNumber(int number) {
+                            return Type.forNumber(number);
+                        }
+                    };
+
+            public final com.google.protobuf.Descriptors.EnumValueDescriptor
+            getValueDescriptor() {
+                return getDescriptor().getValues().get(ordinal());
+            }
+
+            public final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptorForType() {
+                return getDescriptor();
+            }
+
+            public static final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptor() {
+                return Message.getDescriptor().getEnumTypes().get(0);
+            }
+
+            private static final Type[] VALUES = values();
+
+            public static Type valueOf(
+                    com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+                if (desc.getType() != getDescriptor()) {
+                    throw new IllegalArgumentException(
+                            "EnumValueDescriptor is not for this type.");
+                }
+                if (desc.getIndex() == -1) {
+                    return UNRECOGNIZED;
+                }
+                return VALUES[desc.getIndex()];
+            }
+
+            private final int value;
+
+            private Type(int value) {
+                this.value = value;
+            }
+
+            // @@protoc_insertion_point(enum_scope:Message.Type)
         }
-        if (other.getTo() != 0L) {
-          setTo(other.getTo());
+
+        private int bitField0_;
+        public static final int TYPE_FIELD_NUMBER = 1;
+        private int type_;
+
+        /**
+         * <code>optional .Message.Type type = 1;</code>
+         */
+        public int getTypeValue() {
+            return type_;
         }
-        if (!other.data_.isEmpty()) {
-          if (data_.isEmpty()) {
-            data_ = other.data_;
-            bitField0_ = (bitField0_ & ~0x00000010);
-          } else {
-            ensureDataIsMutable();
-            data_.addAll(other.data_);
-          }
-          onChanged();
+
+        /**
+         * <code>optional .Message.Type type = 1;</code>
+         */
+        public Type getType() {
+            Type result = Type.forNumber(type_);
+            return result == null ? Type.UNRECOGNIZED : result;
         }
-        if (other.getFlag() != 0) {
-          setFlag(other.getFlag());
+
+        public static final int VERSION_FIELD_NUMBER = 2;
+        private int version_;
+
+        /**
+         * <code>optional int32 version = 2;</code>
+         */
+        public int getVersion() {
+            return version_;
         }
-        if (other.getHash() != 0) {
-          setHash(other.getHash());
+
+        public static final int FROM_FIELD_NUMBER = 3;
+        private long from_;
+
+        /**
+         * <code>optional int64 from = 3;</code>
+         */
+        public long getFrom() {
+            return from_;
         }
-        onChanged();
-        return this;
-      }
 
-      public final boolean isInitialized() {
-        return true;
-      }
+        public static final int TO_FIELD_NUMBER = 4;
+        private long to_;
 
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.mchat.io.chatServer.message.Protobuf.Message parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.mchat.io.chatServer.message.Protobuf.Message) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        /**
+         * <code>optional int64 to = 4;</code>
+         */
+        public long getTo() {
+            return to_;
         }
-        return this;
-      }
-      private int bitField0_;
 
-      private int type_ = 0;
-      /**
-       * <code>optional .Message.Type type = 1;</code>
-       */
-      public int getTypeValue() {
-        return type_;
-      }
-      /**
-       * <code>optional .Message.Type type = 1;</code>
-       */
-      public Builder setTypeValue(int value) {
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional .Message.Type type = 1;</code>
-       */
-      public org.mchat.io.chatServer.message.Protobuf.Message.Type getType() {
-        org.mchat.io.chatServer.message.Protobuf.Message.Type result = org.mchat.io.chatServer.message.Protobuf.Message.Type.forNumber(type_);
-        return result == null ? org.mchat.io.chatServer.message.Protobuf.Message.Type.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>optional .Message.Type type = 1;</code>
-       */
-      public Builder setType(org.mchat.io.chatServer.message.Protobuf.Message.Type value) {
-        if (value == null) {
-          throw new NullPointerException();
+        public static final int TEXT_FIELD_NUMBER = 5;
+        private volatile Object text_;
+
+        /**
+         * <code>optional string text = 5;</code>
+         */
+        public String getText() {
+            Object ref = text_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                text_ = s;
+                return s;
+            }
         }
-        
-        type_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional .Message.Type type = 1;</code>
-       */
-      public Builder clearType() {
-        
-        type_ = 0;
-        onChanged();
-        return this;
-      }
 
-      private int version_ ;
-      /**
-       * <code>optional int32 version = 2;</code>
-       */
-      public int getVersion() {
-        return version_;
-      }
-      /**
-       * <code>optional int32 version = 2;</code>
-       */
-      public Builder setVersion(int value) {
-        
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 version = 2;</code>
-       */
-      public Builder clearVersion() {
-        
-        version_ = 0;
-        onChanged();
-        return this;
-      }
+        /**
+         * <code>optional string text = 5;</code>
+         */
+        public com.google.protobuf.ByteString
+        getTextBytes() {
+            Object ref = text_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                text_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
 
-      private long from_ ;
-      /**
-       * <code>optional int64 from = 3;</code>
-       */
-      public long getFrom() {
-        return from_;
-      }
-      /**
-       * <code>optional int64 from = 3;</code>
-       */
-      public Builder setFrom(long value) {
-        
-        from_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int64 from = 3;</code>
-       */
-      public Builder clearFrom() {
-        
-        from_ = 0L;
-        onChanged();
-        return this;
-      }
+        public static final int DATA_FIELD_NUMBER = 6;
+        private java.util.List<com.google.protobuf.ByteString> data_;
 
-      private long to_ ;
-      /**
-       * <code>optional int64 to = 4;</code>
-       */
-      public long getTo() {
-        return to_;
-      }
-      /**
-       * <code>optional int64 to = 4;</code>
-       */
-      public Builder setTo(long value) {
-        
-        to_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int64 to = 4;</code>
-       */
-      public Builder clearTo() {
-        
-        to_ = 0L;
-        onChanged();
-        return this;
-      }
+        /**
+         * <code>repeated bytes data = 6;</code>
+         */
+        public java.util.List<com.google.protobuf.ByteString>
+        getDataList() {
+            return data_;
+        }
 
-      private java.util.List<com.google.protobuf.ByteString> data_ = java.util.Collections.emptyList();
-      private void ensureDataIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          data_ = new java.util.ArrayList<com.google.protobuf.ByteString>(data_);
-          bitField0_ |= 0x00000010;
-         }
-      }
-      /**
-       * <code>repeated bytes data = 5;</code>
-       */
-      public java.util.List<com.google.protobuf.ByteString>
-          getDataList() {
-        return java.util.Collections.unmodifiableList(data_);
-      }
-      /**
-       * <code>repeated bytes data = 5;</code>
-       */
-      public int getDataCount() {
-        return data_.size();
-      }
-      /**
-       * <code>repeated bytes data = 5;</code>
-       */
-      public com.google.protobuf.ByteString getData(int index) {
-        return data_.get(index);
-      }
-      /**
-       * <code>repeated bytes data = 5;</code>
-       */
-      public Builder setData(
-          int index, com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDataIsMutable();
-        data_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bytes data = 5;</code>
-       */
-      public Builder addData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDataIsMutable();
-        data_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bytes data = 5;</code>
-       */
-      public Builder addAllData(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
-        ensureDataIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, data_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bytes data = 5;</code>
-       */
-      public Builder clearData() {
-        data_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
-        onChanged();
-        return this;
-      }
+        /**
+         * <code>repeated bytes data = 6;</code>
+         */
+        public int getDataCount() {
+            return data_.size();
+        }
 
-      private int flag_ ;
-      /**
-       * <code>optional int32 flag = 6;</code>
-       */
-      public int getFlag() {
-        return flag_;
-      }
-      /**
-       * <code>optional int32 flag = 6;</code>
-       */
-      public Builder setFlag(int value) {
-        
-        flag_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 flag = 6;</code>
-       */
-      public Builder clearFlag() {
-        
-        flag_ = 0;
-        onChanged();
-        return this;
-      }
+        /**
+         * <code>repeated bytes data = 6;</code>
+         */
+        public com.google.protobuf.ByteString getData(int index) {
+            return data_.get(index);
+        }
 
-      private int hash_ ;
-      /**
-       * <code>optional int32 hash = 7;</code>
-       */
-      public int getHash() {
-        return hash_;
-      }
-      /**
-       * <code>optional int32 hash = 7;</code>
-       */
-      public Builder setHash(int value) {
-        
-        hash_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 hash = 7;</code>
-       */
-      public Builder clearHash() {
-        
-        hash_ = 0;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
+        public static final int FLAG_FIELD_NUMBER = 7;
+        private int flag_;
 
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
+        /**
+         * <code>optional int32 flag = 7;</code>
+         */
+        public int getFlag() {
+            return flag_;
+        }
+
+        public static final int HASH_FIELD_NUMBER = 8;
+        private int hash_;
+
+        /**
+         * <code>optional int32 hash = 8;</code>
+         */
+        public int getHash() {
+            return hash_;
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (type_ != Type.TEXT.getNumber()) {
+                output.writeEnum(1, type_);
+            }
+            if (version_ != 0) {
+                output.writeInt32(2, version_);
+            }
+            if (from_ != 0L) {
+                output.writeInt64(3, from_);
+            }
+            if (to_ != 0L) {
+                output.writeInt64(4, to_);
+            }
+            if (!getTextBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessage.writeString(output, 5, text_);
+            }
+            for (int i = 0; i < data_.size(); i++) {
+                output.writeBytes(6, data_.get(i));
+            }
+            if (flag_ != 0) {
+                output.writeInt32(7, flag_);
+            }
+            if (hash_ != 0) {
+                output.writeInt32(8, hash_);
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (type_ != Type.TEXT.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeEnumSize(1, type_);
+            }
+            if (version_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(2, version_);
+            }
+            if (from_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(3, from_);
+            }
+            if (to_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(4, to_);
+            }
+            if (!getTextBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessage.computeStringSize(5, text_);
+            }
+            {
+                int dataSize = 0;
+                for (int i = 0; i < data_.size(); i++) {
+                    dataSize += com.google.protobuf.CodedOutputStream
+                            .computeBytesSizeNoTag(data_.get(i));
+                }
+                size += dataSize;
+                size += 1 * getDataList().size();
+            }
+            if (flag_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(7, flag_);
+            }
+            if (hash_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(8, hash_);
+            }
+            memoizedSize = size;
+            return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+
+        public static Message parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Message parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Message parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Message parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Message parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Message parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Message parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static Message parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Message parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Message parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessage
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(Message prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @Override
+        protected Builder newBuilderForType(
+                BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code Message}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:Message)
+                MessageOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return Protobuf.internal_static_Message_descriptor;
+            }
+
+            protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return Protobuf.internal_static_Message_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                Message.class, Builder.class);
+            }
+
+            // Construct using org.mchat.io.chatServer.message.Protobuf.Message.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                type_ = 0;
+
+                version_ = 0;
+
+                from_ = 0L;
+
+                to_ = 0L;
+
+                text_ = "";
+
+                data_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000020);
+                flag_ = 0;
+
+                hash_ = 0;
+
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return Protobuf.internal_static_Message_descriptor;
+            }
+
+            public Message getDefaultInstanceForType() {
+                return Message.getDefaultInstance();
+            }
+
+            public Message build() {
+                Message result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public Message buildPartial() {
+                Message result = new Message(this);
+                int from_bitField0_ = bitField0_;
+                int to_bitField0_ = 0;
+                result.type_ = type_;
+                result.version_ = version_;
+                result.from_ = from_;
+                result.to_ = to_;
+                result.text_ = text_;
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                    data_ = java.util.Collections.unmodifiableList(data_);
+                    bitField0_ = (bitField0_ & ~0x00000020);
+                }
+                result.data_ = data_;
+                result.flag_ = flag_;
+                result.hash_ = hash_;
+                result.bitField0_ = to_bitField0_;
+                onBuilt();
+                return result;
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof Message) {
+                    return mergeFrom((Message) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(Message other) {
+                if (other == Message.getDefaultInstance()) return this;
+                if (other.type_ != 0) {
+                    setTypeValue(other.getTypeValue());
+                }
+                if (other.getVersion() != 0) {
+                    setVersion(other.getVersion());
+                }
+                if (other.getFrom() != 0L) {
+                    setFrom(other.getFrom());
+                }
+                if (other.getTo() != 0L) {
+                    setTo(other.getTo());
+                }
+                if (!other.getText().isEmpty()) {
+                    text_ = other.text_;
+                    onChanged();
+                }
+                if (!other.data_.isEmpty()) {
+                    if (data_.isEmpty()) {
+                        data_ = other.data_;
+                        bitField0_ = (bitField0_ & ~0x00000020);
+                    } else {
+                        ensureDataIsMutable();
+                        data_.addAll(other.data_);
+                    }
+                    onChanged();
+                }
+                if (other.getFlag() != 0) {
+                    setFlag(other.getFlag());
+                }
+                if (other.getHash() != 0) {
+                    setHash(other.getHash());
+                }
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                Message parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (Message) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private int bitField0_;
+
+            private int type_ = 0;
+
+            /**
+             * <code>optional .Message.Type type = 1;</code>
+             */
+            public int getTypeValue() {
+                return type_;
+            }
+
+            /**
+             * <code>optional .Message.Type type = 1;</code>
+             */
+            public Builder setTypeValue(int value) {
+                type_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional .Message.Type type = 1;</code>
+             */
+            public Type getType() {
+                Type result = Type.forNumber(type_);
+                return result == null ? Type.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>optional .Message.Type type = 1;</code>
+             */
+            public Builder setType(Type value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                type_ = value.getNumber();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional .Message.Type type = 1;</code>
+             */
+            public Builder clearType() {
+
+                type_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private int version_;
+
+            /**
+             * <code>optional int32 version = 2;</code>
+             */
+            public int getVersion() {
+                return version_;
+            }
+
+            /**
+             * <code>optional int32 version = 2;</code>
+             */
+            public Builder setVersion(int value) {
+
+                version_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional int32 version = 2;</code>
+             */
+            public Builder clearVersion() {
+
+                version_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private long from_;
+
+            /**
+             * <code>optional int64 from = 3;</code>
+             */
+            public long getFrom() {
+                return from_;
+            }
+
+            /**
+             * <code>optional int64 from = 3;</code>
+             */
+            public Builder setFrom(long value) {
+
+                from_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional int64 from = 3;</code>
+             */
+            public Builder clearFrom() {
+
+                from_ = 0L;
+                onChanged();
+                return this;
+            }
+
+            private long to_;
+
+            /**
+             * <code>optional int64 to = 4;</code>
+             */
+            public long getTo() {
+                return to_;
+            }
+
+            /**
+             * <code>optional int64 to = 4;</code>
+             */
+            public Builder setTo(long value) {
+
+                to_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional int64 to = 4;</code>
+             */
+            public Builder clearTo() {
+
+                to_ = 0L;
+                onChanged();
+                return this;
+            }
+
+            private Object text_ = "";
+
+            /**
+             * <code>optional string text = 5;</code>
+             */
+            public String getText() {
+                Object ref = text_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    text_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>optional string text = 5;</code>
+             */
+            public com.google.protobuf.ByteString
+            getTextBytes() {
+                Object ref = text_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    text_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>optional string text = 5;</code>
+             */
+            public Builder setText(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                text_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional string text = 5;</code>
+             */
+            public Builder clearText() {
+
+                text_ = getDefaultInstance().getText();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional string text = 5;</code>
+             */
+            public Builder setTextBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                text_ = value;
+                onChanged();
+                return this;
+            }
+
+            private java.util.List<com.google.protobuf.ByteString> data_ = java.util.Collections.emptyList();
+
+            private void ensureDataIsMutable() {
+                if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+                    data_ = new java.util.ArrayList<com.google.protobuf.ByteString>(data_);
+                    bitField0_ |= 0x00000020;
+                }
+            }
+
+            /**
+             * <code>repeated bytes data = 6;</code>
+             */
+            public java.util.List<com.google.protobuf.ByteString>
+            getDataList() {
+                return java.util.Collections.unmodifiableList(data_);
+            }
+
+            /**
+             * <code>repeated bytes data = 6;</code>
+             */
+            public int getDataCount() {
+                return data_.size();
+            }
+
+            /**
+             * <code>repeated bytes data = 6;</code>
+             */
+            public com.google.protobuf.ByteString getData(int index) {
+                return data_.get(index);
+            }
+
+            /**
+             * <code>repeated bytes data = 6;</code>
+             */
+            public Builder setData(
+                    int index, com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                ensureDataIsMutable();
+                data_.set(index, value);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>repeated bytes data = 6;</code>
+             */
+            public Builder addData(com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                ensureDataIsMutable();
+                data_.add(value);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>repeated bytes data = 6;</code>
+             */
+            public Builder addAllData(
+                    Iterable<? extends com.google.protobuf.ByteString> values) {
+                ensureDataIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                        values, data_);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>repeated bytes data = 6;</code>
+             */
+            public Builder clearData() {
+                data_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000020);
+                onChanged();
+                return this;
+            }
+
+            private int flag_;
+
+            /**
+             * <code>optional int32 flag = 7;</code>
+             */
+            public int getFlag() {
+                return flag_;
+            }
+
+            /**
+             * <code>optional int32 flag = 7;</code>
+             */
+            public Builder setFlag(int value) {
+
+                flag_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional int32 flag = 7;</code>
+             */
+            public Builder clearFlag() {
+
+                flag_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private int hash_;
+
+            /**
+             * <code>optional int32 hash = 8;</code>
+             */
+            public int getHash() {
+                return hash_;
+            }
+
+            /**
+             * <code>optional int32 hash = 8;</code>
+             */
+            public Builder setHash(int value) {
+
+                hash_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional int32 hash = 8;</code>
+             */
+            public Builder clearHash() {
+
+                hash_ = 0;
+                onChanged();
+                return this;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:Message)
-    }
+            // @@protoc_insertion_point(builder_scope:Message)
+        }
 
-    // @@protoc_insertion_point(class_scope:Message)
-    private static final org.mchat.io.chatServer.message.Protobuf.Message DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new org.mchat.io.chatServer.message.Protobuf.Message();
-    }
+        // @@protoc_insertion_point(class_scope:Message)
+        private static final Message DEFAULT_INSTANCE;
 
-    public static org.mchat.io.chatServer.message.Protobuf.Message getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
+        static {
+            DEFAULT_INSTANCE = new Message();
+        }
 
-    private static final com.google.protobuf.Parser<Message>
-        PARSER = new com.google.protobuf.AbstractParser<Message>() {
-      public Message parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Message(input, extensionRegistry);
-      }
-    };
+        public static Message getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
 
-    public static com.google.protobuf.Parser<Message> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Message> getParserForType() {
-      return PARSER;
-    }
-
-    public org.mchat.io.chatServer.message.Protobuf.Message getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Parent_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Parent_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Message_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Message_fieldAccessorTable;
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\rMessage.proto\"#\n\006Parent\022\031\n\007message\030\001 \001" +
-      "(\0132\010.Message\"\305\001\n\007Message\022\033\n\004type\030\001 \001(\0162\r" +
-      ".Message.Type\022\017\n\007version\030\002 \001(\005\022\014\n\004from\030\003" +
-      " \001(\003\022\n\n\002to\030\004 \001(\003\022\014\n\004data\030\005 \003(\014\022\014\n\004flag\030\006" +
-      " \001(\005\022\014\n\004hash\030\007 \001(\005\"H\n\004Type\022\010\n\004TEXT\020\000\022\014\n\010" +
-      "LOCATION\020\001\022\t\n\005VOICE\020\002\022\t\n\005IMAGE\020\003\022\007\n\003ACK\020" +
-      "\004\022\t\n\005ERROR\020\005B+\n\037org.mchat.io.chatServer." +
-      "messageB\010Protobufb\006proto3"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
+        private static final com.google.protobuf.Parser<Message>
+                PARSER = new com.google.protobuf.AbstractParser<Message>() {
+            public Message parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Message(input, extensionRegistry);
+            }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_Parent_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_Parent_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Parent_descriptor,
-        new java.lang.String[] { "Message", });
-    internal_static_Message_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_Message_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Message_descriptor,
-        new java.lang.String[] { "Type", "Version", "From", "To", "Data", "Flag", "Hash", });
-  }
 
-  // @@protoc_insertion_point(outer_class_scope)
+        public static com.google.protobuf.Parser<Message> parser() {
+            return PARSER;
+        }
+
+        @Override
+        public com.google.protobuf.Parser<Message> getParserForType() {
+            return PARSER;
+        }
+
+        public Message getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+    }
+
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_Parent_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internal_static_Parent_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_Message_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internal_static_Message_fieldAccessorTable;
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
+
+    static {
+        String[] descriptorData = {
+                "\n\rMessage.proto\"#\n\006Parent\022\031\n\007message\030\001 \001" +
+                        "(\0132\010.Message\"\323\001\n\007Message\022\033\n\004type\030\001 \001(\0162\r" +
+                        ".Message.Type\022\017\n\007version\030\002 \001(\005\022\014\n\004from\030\003" +
+                        " \001(\003\022\n\n\002to\030\004 \001(\003\022\014\n\004text\030\005 \001(\t\022\014\n\004data\030\006" +
+                        " \003(\014\022\014\n\004flag\030\007 \001(\005\022\014\n\004hash\030\010 \001(\005\"H\n\004Type" +
+                        "\022\010\n\004TEXT\020\000\022\014\n\010LOCATION\020\001\022\t\n\005VOICE\020\002\022\t\n\005I" +
+                        "MAGE\020\003\022\007\n\003CMD\020\004\022\t\n\005ERROR\020\005B+\n\037org.mchat." +
+                        "io.chatServer.messageB\010Protobufb\006proto3"
+        };
+        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
+                            com.google.protobuf.Descriptors.FileDescriptor root) {
+                        descriptor = root;
+                        return null;
+                    }
+                };
+        com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        }, assigner);
+        internal_static_Parent_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_Parent_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+                internal_static_Parent_descriptor,
+                new String[]{"Message",});
+        internal_static_Message_descriptor =
+                getDescriptor().getMessageTypes().get(1);
+        internal_static_Message_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+                internal_static_Message_descriptor,
+                new String[]{"Type", "Version", "From", "To", "Text", "Data", "Flag", "Hash",});
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }
