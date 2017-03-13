@@ -1,9 +1,9 @@
-package org.mchat.io.chatServer.handler;
+package org.mchat.io.chatServer;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.mchat.io.chatServer.message.Protobuf;
-import org.mchat.io.chatServer.message.Message;
+import org.mchat.io.chatServer.message.ProtoMessage;
 import org.mchat.io.chatServer.router.RouterService;
 
 /**
@@ -11,17 +11,13 @@ import org.mchat.io.chatServer.router.RouterService;
  */
 public class RouterHandler extends SimpleChannelInboundHandler<Protobuf.Message> {
 
-    final RouterService service;
-
-    public  RouterHandler(RouterService service){
-         this.service = service;
-    }
-
+    final RouterService service = RouterService.getInstance();
 
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, Protobuf.Message msg) throws Exception {
+        System.out.println(msg);
         if(msg.getType() == Protobuf.Message.Type.TEXT){
-            service.addMessage(new Message(msg));
+            service.addMessage(new ProtoMessage(msg));
         }
     }
 
